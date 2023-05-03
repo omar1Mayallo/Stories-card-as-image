@@ -6,11 +6,8 @@ const Header = () => {
       <nav className="relative  bg-neutral-0 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-3">
         <div className="container flex w-full flex-wrap items-center justify-between">
           <div className="flex items-center">
-            <span className="font-bold text-gray-600 text-2xl">
-              <span className="bg-sky-600 text-white p-1 font-extrabold rounded">
-                GR
-              </span>{" "}
-              Card
+            <span className="text-gray-800 text-2xl font-extrabold">
+              <span className="bg-sky-600 text-white p-1 rounded">GR</span> Card
             </span>
           </div>
           <a

@@ -1,4 +1,6 @@
 import Card from "../Card";
+import Sidebar from "../Sidebar";
+import Divider from "../common/Divider";
 
 export default function Workspace() {
   return (
@@ -9,11 +11,18 @@ export default function Workspace() {
       >
         DESIGN YOUR GREETING CARD 🎉
       </h1>
-      <hr className="my-6 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+      <Divider isTransparent={true} />
 
-      <Card />
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-4">
+          <Sidebar />
+        </div>
+        <div className="col-span-8">
+          <Card />
+        </div>
+      </div>
 
-      <hr className="my-6 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+      <Divider isTransparent={true} />
     </div>
   );
 }
