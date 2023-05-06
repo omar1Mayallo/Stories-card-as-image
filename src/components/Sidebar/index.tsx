@@ -2,7 +2,7 @@ import {bgColors} from "../../assets/data/colors";
 import BackgroundCircle from "../common/BackgroundCircle";
 import Divider from "../common/Divider";
 import SubHead from "../common/SubHead";
-
+import "./sidebar.styles.css";
 interface ISidebarProps {
   handleBgColor: (color: string) => void;
   handleText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -15,7 +15,7 @@ export default function Sidebar({
   handleFont,
 }: ISidebarProps) {
   return (
-    <div className="max-h-80 overflow-y-auto p-3">
+    <div className="sidebar max-h-80 overflow-y-auto p-3">
       {/* Text */}
       <div className="flex flex-col gap-2">
         <SubHead head="Text" />
