@@ -1,7 +1,19 @@
+import {bgColors} from "../../assets/data/colors";
+import BackgroundCircle from "../common/BackgroundCircle";
 import Divider from "../common/Divider";
 import SubHead from "../common/SubHead";
 
-export default function Sidebar() {
+interface ISidebarProps {
+  handleBgColor: (color: string) => void;
+  handleText: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleFont: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+export default function Sidebar({
+  handleBgColor,
+  handleText,
+  handleFont,
+}: ISidebarProps) {
   return (
     <div className="max-h-80 overflow-y-auto p-3">
       {/* Text */}
@@ -12,30 +24,8 @@ export default function Sidebar() {
           cols={10}
           rows={3}
           placeholder="Start writing ..."
-        ></textarea>
-      </div>
-      <Divider />
-      {/* Position */}
-      <div className="flex flex-col gap-2">
-        <SubHead head="Position" />
-        <div className="border p-2 flex flex-col gap-3">
-          <div className="flex items-center gap-2">
-            <label className="text-gray-600 font-black">top </label>
-            <input type="number" className="border p-1" />
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-gray-600 font-black">bottom </label>
-            <input type="number" className="border p-1" />
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-gray-600 font-black">left </label>
-            <input type="number" className="border p-1" />
-          </div>
-          <div className="flex items-center gap-2">
-            <label className="text-gray-600 font-black">right </label>
-            <input type="number" className="border p-1" />
-          </div>
-        </div>
+          onChange={handleText}
+        />
       </div>
       <Divider />
       {/* Fonts */}
@@ -46,6 +36,7 @@ export default function Sidebar() {
           id="fonts"
           className="border p-2"
           defaultValue={"default"}
+          onChange={handleFont}
         >
           <option value="default" disabled>
             Select font
@@ -60,17 +51,13 @@ export default function Sidebar() {
       <div className="flex flex-col gap-2">
         <SubHead head="Background" />
         <div className="flex flex-wrap gap-3 items-center justify-start border p-2">
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
-          <div className="bg-gray-500 w-8 h-8 rounded-full cursor-pointer" />
+          {bgColors.map((color, idx) => (
+            <BackgroundCircle
+              key={idx}
+              bgColor={color}
+              handleClick={handleBgColor}
+            />
+          ))}
         </div>
       </div>
       <Divider />
